@@ -28,11 +28,11 @@ export default function DashboardPage() {
     try {
       const response = await axiosInstance.get('/auth/me');
       setApiData(response.data);
-      setApiStatus('✓ API accessible avec succès !');
+      setApiStatus('API accessible avec succès !');
     } catch (error) {
       const errorMsg = error.response?.data?.message || 'Erreur lors de l\'appel API';
       setApiError(errorMsg);
-      setApiStatus('✗ ' + errorMsg);
+      setApiStatus(errorMsg);
     } finally {
       setApiLoading(false);
     }
