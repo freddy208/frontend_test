@@ -57,39 +57,44 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      {/* Barre du haut - Blanche avec bordure gauche bleue */}
-      <div className="bg-white shadow-lg rounded-lg mx-4 sm:mx-6 lg:mx-8 mt-4 sm:mt-6 lg:mt-8 border-l-8 border-blue-600">
+      <div className="text-center pt-6 sm:pt-8 pb-4">
+        <h1 className="text-xl sm:text-2xl font-bold text-blue-600 px-4">
+          Next.js (Context/Axios) & Laravel (JWT)
+        </h1>
+      </div>
+
+      <div className="bg-white shadow-lg rounded-lg mx-4 sm:mx-6 lg:mx-8 mt-4 border-l-8 border-blue-600">
         <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div>
-              <h1 className="text-xl sm:text-2xl font-bold text-blue-600">
-                Next.js (Context/Axios) & Laravel (JWT)
-              </h1>
-            </div>
+          <div className="flex items-center gap-3">
+            <svg 
+              className="w-6 h-6 text-blue-600" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              viewBox="0 0 24 24"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
+              />
+            </svg>
             
-            <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 text-gray-700">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
-                <span className="text-sm font-medium">{user.name}</span>
-              </div>
-              
-              <button
-                onClick={handleLogout}
-                className="text-sm text-red-600 hover:text-red-700 underline hover:no-underline font-medium"
-              >
-                Déconnexion
-              </button>
-            </div>
+            <span className="text-sm sm:text-base font-medium text-gray-700">
+              {user.name}
+            </span>
+            
+            <button
+              onClick={handleLogout}
+              className="text-sm sm:text-base text-red-600 hover:text-red-700 font-medium ml-2"
+            >
+              Déconnexion
+            </button>
           </div>
         </div>
       </div>
-
-      {/* Contenu principal */}
       <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
         <div className="max-w-4xl mx-auto">
-          {/* Message de bienvenue */}
           <div className="mb-6 sm:mb-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
               Bienvenue, {user.name} !
@@ -99,30 +104,28 @@ export default function DashboardPage() {
             </p>
           </div>
 
-          {/* Carte Test API - Bordure dorée avec shadow */}
-          <div className="bg-white rounded-2xl shadow-xl border-4 border-yellow-500 p-6 sm:p-8">
-            <h3 className="text-lg sm:text-xl font-bold mb-4 text-yellow-800">
+          <div className="bg-white rounded-2xl shadow-xl border-2 border-yellow-500 p-6 sm:p-8">
+            <h3 className="text-lg sm:text-xl font-bold mb-6 text-yellow-800 text-center">
               Test de l&apos;API Protégée (Laravel JWT)
             </h3>
 
             <button
               onClick={testProtectedApi}
               disabled={apiLoading}
-              className="w-full bg-white border-2 border-gray-300 text-gray-700 font-medium py-3 rounded-lg hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed mb-4"
+              className="w-full bg-white border-2 border-gray-300 text-gray-700 font-medium py-3 rounded-lg hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed mb-6"
             >
               {apiLoading ? 'Test en cours...' : 'Tester l\'accès API Protégé'}
             </button>
 
-            <div className="mb-4">
+            <div className="mb-6 text-center">
               <p className="text-sm sm:text-base text-gray-700">
                 <span className="font-semibold">Statut:</span>{' '}
                 <span className="text-blue-600">{apiStatus}</span>
               </p>
             </div>
 
-            {/* Affichage des résultats si succès */}
             {apiData && (
-              <div className="mt-4 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
+              <div className="mt-6 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
                 <p className="font-semibold text-green-700 text-sm mb-3">
                   ✓ Réponse de l&apos;API :
                 </p>
@@ -134,9 +137,8 @@ export default function DashboardPage() {
               </div>
             )}
 
-            {/* Affichage des erreurs */}
             {apiError && (
-              <div className="mt-4 p-4 bg-red-50 border-2 border-red-300 rounded-lg">
+              <div className="mt-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg">
                 <p className="font-semibold text-red-700 text-sm">
                   ✗ Erreur lors de l&apos;appel API
                 </p>
