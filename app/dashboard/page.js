@@ -127,7 +127,7 @@ export default function DashboardPage() {
             {apiData && (
               <div className="mt-6 p-4 bg-green-50 border-2 border-green-300 rounded-lg">
                 <p className="font-semibold text-green-700 text-sm mb-3">
-                  ✓ Réponse de l&apos;API :
+                  Réponse de l&apos;API :
                 </p>
                 <div className="bg-white p-3 rounded border border-green-200 overflow-x-auto">
                   <pre className="text-xs sm:text-sm text-gray-800">
@@ -140,7 +140,7 @@ export default function DashboardPage() {
             {apiError && (
               <div className="mt-6 p-4 bg-red-50 border-2 border-red-300 rounded-lg">
                 <p className="font-semibold text-red-700 text-sm">
-                  ✗ Erreur lors de l&apos;appel API
+                  Erreur lors de l&apos;appel API
                 </p>
                 <p className="text-sm text-red-600 mt-1">{apiError}</p>
               </div>
